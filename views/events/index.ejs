@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+     <header class="jumbotron">
+         <div class="container">
+             <h1><span class="glyphicon glyphicon-tent"></span> Welcome To SUTD Events!</h1>
+             <p>View our hand-picked events from all over SUTD</p>
+             <p>
+                <a class="btn btn-primary btn-lg" href="/events/new">Add New Event</a>
+             </p>
+              <p>
+              <form action="/events" method="GET" class="form-inline" id="event-search">
+                <div class="form-group">
+                  <input type="text" name="search" placeholder="event search..." class="form-control">
+                </div>
+              </form>
+             </p>
+         </div>
+     </header>
+
+     <div class="row text-center flex-wrap" id="event-grid">
+        <% events.forEach(function(event){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="http://localhost:8000/images/<%= event.image %>">
+                   <div class="caption">
+                       <h4><%= event.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/events/<%= event._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<% include ../partials/footer %>

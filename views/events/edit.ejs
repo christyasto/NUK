@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Edit <%= event.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/events/<%=event._id%>?_method=PUT" method="POST"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name" id="name" value="<%= event.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" id="image" accept="image/*" >
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category"  id="category" class="form-control" required>
+                      <%
+                          var options = [ "fitness", "sport", "food", "volunteering"];
+                          for ( var i = 0; i < options.length; i++ )
+                          {
+                              var selected = ( event.category == options[i] ) ? "selected" : "";
+                              %><option value="<%=options[ i ] %>" <%=selected %>><%=options[i] %></option><%
+                          }
+                      %>
+
+                    
+                      </select>
+                    </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="location" id="location" value="<%= event.location %>">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" type="text" name="description" id="description">
+                      <%= event.description %>
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date Time</label>
+                    <input class="form-control" type="datetime" name="date" id="date" value="<%= event.date %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input class="form-control" type="tags" name="tags" id="tags" value="<%= event.tags %>" >
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Update!</button>
+                </div>
+            </form>
+            <a href="/events">Go Back</a>
+        </div>
+    </div>
+<% include ../partials/footer %>

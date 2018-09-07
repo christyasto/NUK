@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Create a New Event</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/events" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="event[name]" id="name" placeholder="Yoga">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" id="image" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="event[category]"  id="category" class="form-control" required>
+                      <option value=""> -- Please select --</option>
+                      <option value="fitness">Fitness</option>
+                      <option value="sport">Sport</option>
+                      <option value="food">Food</option>
+                      <option value="volunteering">Volunteering</option>
+                      </select>
+                    </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="event[location]" id="location" placeholder="Sutd Building 3, Singapore">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" type="text" name="event[description]" id="description" placeholder="">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date Time</label>
+                    <input class="form-control" type="datetime" name="event[date]" id="date" placeholder="YYYY-MM-DD HH:mm:ss" required>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input class="form-control" type="tags" name="event[tags]" id="tags" placeholder="" >
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/events">Go Back</a>
+        </div>
+    </div>
+<% include ../partials/footer %>
