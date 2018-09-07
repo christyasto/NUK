@@ -119,7 +119,7 @@ router.post('/forgot', function(req, res, next) {
         service: 'Gmail',
         auth: {
           user: 'nuk.sutd.app@gmail.com',
-          pass: 'BeautifulSutdNuk2018'
+          pass: ''
         }
       });
       var mailOptions = {
@@ -183,7 +183,7 @@ router.post('/reset/:token', function(req, res) {
         service: 'Gmail',
         auth: {
           user: 'nuk.sutd.app@gmail.com',
-          pass: 'BeautifulSutdNuk2018'
+          pass: ''
         }
       });
       var mailOptions = {
